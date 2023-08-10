@@ -28,7 +28,7 @@ func main() {
 // 解释：需要合并 [1,2,3] 和 [2,5,6] 。
 // 合并结果是 [1,2,2,3,5,6] ，其中斜体加粗标注的为 nums1 中的元素。
 func merge(nums1 []int, m int, nums2 []int, n int) {
-	a := make([]int, m+n)
+	a := make([]int, 0, m+n)
 	q, p := 0, 0
 	for {
 		if q == m {
@@ -46,6 +46,9 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 			a = append(a, nums2[p])
 			p++
 		}
+	}
+	for _, v := range a {
+		fmt.Println(v)
 	}
 	copy(nums1, a)
 }
