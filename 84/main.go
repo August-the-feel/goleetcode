@@ -41,17 +41,13 @@ func largestRectangleArea(heights []int) int {
 		}
 		mono_stack = append(mono_stack, i)
 	}
-	fmt.Println(right)
-	fmt.Println(left)
-
 	// 创建一个最大值
-	// ans := 0
-	// for i := 0; i < n; i++ {
-	// 	// (right[i]-left[i]-1)*heights[i] 求最大值 right[i]-left[i]-1 左边界 从-1 开始
-	// 	ans = max(ans, (right[i]-left[i]-1)*heights[i])
-	// }
-	// return ans
-	return 1
+	ans := 0
+	for i := 0; i < n; i++ {
+		// (right[i]-left[i]-1)*heights[i] 求最大值 right[i]-left[i]-1 左边界 从-1 开始
+		ans = max(ans, (right[i]-left[i]-1)*heights[i])
+	}
+	return ans
 }
 
 func largestRectangleArea2(heights []int) int {

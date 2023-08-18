@@ -16,13 +16,15 @@ func main() {
 
 func groupAnagrams(strs []string) [][]string {
 	mp := make(map[[26]int][]string)
+
 	for _, v := range strs {
-		cnt := [26]int{}
-		for _, b := range v {
-			cnt[b-'a']++
+		chars := [26]int{}
+		for _, j := range v {
+			chars[j-'a']++
 		}
-		mp[cnt] = append(mp[cnt], v)
+		mp[chars] = append(mp[chars], v)
 	}
+
 	ans := make([][]string, 0, len(mp))
 	for _, v := range mp {
 		ans = append(ans, v)
