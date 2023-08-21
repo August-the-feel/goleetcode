@@ -34,7 +34,6 @@ func strStr(haystack, needle string) int {
 		}
 		pi[i] = j
 	}
-	fmt.Println(pi)
 	for i, j := 0, 0; i < n; i++ {
 		for j > 0 && haystack[i] != needle[j] {
 			j = pi[j-1]

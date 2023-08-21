@@ -7,7 +7,6 @@ import (
 
 func main() {
 	fmt.Println(addBinary("10", "11"))
-	// fmt.Println(strconv.Itoa(1 % 2))
 }
 
 func addBinary(a string, b string) string {
@@ -30,7 +29,6 @@ func addBinary(a string, b string) string {
 		ans = "1" + ans
 	}
 	return ans
-	// return ""
 }
 
 func max(x, y int) int {
