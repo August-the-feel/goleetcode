@@ -13,6 +13,7 @@ type TreeNode struct {
 var ins func(node *TreeNode)
 
 func main() {
+	// 前序遍历是 当前节点 左节点 右节点
 	root := &TreeNode{}
 	root.Val = 1
 	root1 := &TreeNode{}
@@ -28,6 +29,9 @@ func main() {
 // 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
 // 输入：root = [1,null,2,3]
 // 输出：[1,2,3]
+
+// 前序遍历是 当前节点 左节点 右节点
+
 func preorderTraversal(root *TreeNode) (res []int) {
 	ins = func(node *TreeNode) {
 		if node == nil {
