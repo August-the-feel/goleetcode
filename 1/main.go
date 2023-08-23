@@ -4,16 +4,9 @@ import (
 	"fmt"
 )
 
-// 如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。
-
-// 字母和数字都属于字母数字字符。
-
-// 给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。
-
-// 输入: s = "A man, a plan, a canal: Panama"
-// 输出：true
-// 解释："amanaplanacanalpanama" 是回文串。
-
+// 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
+// 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+// 你可以按任意顺序返回答案。
 func twoSum(nums []int, target int) []int {
 	for i, x := range nums {
 		for j := i + 1; j < len(nums); j++ {

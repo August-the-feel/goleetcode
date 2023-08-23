@@ -11,17 +11,25 @@ type ListNode struct {
 }
 
 func main() {
-	list := &ListNode{
-		Val: 1,
-	}
-	list.Next = &ListNode{Val: 1}
-	list.Next.Next = &ListNode{Val: 2}
-	list.Next.Next.Next = nil
+	list := &ListNode{Val: 1}
+	list1 := &ListNode{Val: 2}
+	list2 := &ListNode{Val: 6}
+	list3 := &ListNode{Val: 3}
+	list5 := &ListNode{Val: 4}
+	list6 := &ListNode{Val: 5}
+	list7 := &ListNode{Val: 6}
+	list.Next = list1
+	list1.Next = list2
+	list2.Next = list3
+	list3.Next = list5
+	list5.Next = list6
+	list6.Next = list7
+	list7.Next = nil
 	// for list != nil {
 	// 	fmt.Println(list.Val)
 	// 	list = list.Next
 	// }
-	i := removeElements(list, 1)
+	i := removeElements(list, 6)
 	// deleteDuplicates(list)
 	for i != nil {
 		fmt.Println(i.Val)
@@ -42,16 +50,13 @@ func main() {
 // 输入：head = [7,7,7,7], val = 7
 // 输出：[]
 func removeElements(head *ListNode, val int) *ListNode {
-	if head == nil {
-		return nil
-	}
-	lists := head
-	for lists.Next != nil {
-		if lists.Val == val {
+	tmp := &ListNode{Next: head}
+	for lists := tmp; lists.Next != nil; {
+		if lists.Next.Val == val {
 			lists.Next = lists.Next.Next
 		} else {
 			lists = lists.Next
 		}
 	}
-	return lists
+	return tmp.Next
 }
