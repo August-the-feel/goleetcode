@@ -33,5 +33,22 @@ func main() {
 }
 
 func reverseList(head *ListNode) *ListNode {
+	// 创建一个第三变量
 
+	// var prev *ListNode 声明一个指针变量，通常用于在遍历链表等情况下，
+	// 	通过指针变量来跟踪前一个节点。可以在后续操作中，根据需求对 prev
+	// 	进行赋值和操作。
+	// res := &ListNode{} 声明并初始化一个指向 ListNode 结构体实例的指针变量。
+	// 	通常用于创建一个空节点或作为结果节点的头节点。
+	// 	在后续操作中，可以对 res 指针所指向的结构体实例进行成员属性的读写操作。
+
+	var res *ListNode // 最后的链表
+	stack := head     // 中间变量
+	for stack != nil {
+		next := stack.Next // 将下一个节点 存放到临时变量
+		stack.Next = res   // 将下一个赋空值
+		res = stack
+		stack = next //
+	}
+	return res
 }
