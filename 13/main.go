@@ -24,15 +24,24 @@ var symbolValues = map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D':
 // C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 // 给定一个罗马数字，将其转换成整数。
 
+// 通常情况下，罗马数字中小的数字在大的数字的右边。若输入的字符串满足该情况，那么可以将每个字符视作一个单独的值，累加每个字符对应的数值即可。
+
+// 例如 XXVII 可视作 X+X+V+I+I=10+10+5+1+1=27 X + X + V + I + I =10+10+5+1+1=27X+X+V+I+I=10+10+5+1+1=27。
+
+// 若存在小的数字在大的数字的左边的情况，根据规则需要减去小的数字。对于这种情况，我们也可以将每个字符视作一个单独的值，若一个数字右侧的数字比它大，则将该数字的符号取反。
+
+// 例如 XIV 可视作 X−I+V=10−1+5=14 X- I+ V =10-1+5=14X−I+V=10−1+5=14。
+
+// 题解
+// 简单的说就是 把每个数看做一个单独的值，当右侧的数大于当前值 则将数字的符号取反
 func romanToInt(s string) int {
 	n := len(s)
 	ans := 0
 	for i := range s {
-		value := symbolValues[s[i]]
-		if i < n-1 && value < symbolValues[s[i+1]] {
-			ans -= value
+		if i < n-1 && symbolValues[s[i]] < symbolValues[s[i+1]] {
+			ans -= symbolValues[s[i]]
 		} else {
-			ans += value
+			ans += symbolValues[s[i]]
 		}
 	}
 	return ans

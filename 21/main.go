@@ -44,7 +44,6 @@ func main() {
 	lists1 := &ListNode{}
 	lists1.Val = 1
 	lists1.Next = &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}}
-
 	i := mergeTwoLists(lists, lists1)
 	for i != nil {
 		fmt.Println(i.Val)
