@@ -21,6 +21,7 @@ func twoSum(nums []int, target int) []int {
 func twoSum1(nums []int, target int) []int {
 	var a map[int]int
 	a = make(map[int]int, 10)
+	fmt.Println(a)
 	for i, x := range nums {
 		if p, ok := a[target-x]; ok {
 			return []int{i, p}
