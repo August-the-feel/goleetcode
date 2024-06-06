@@ -17,6 +17,28 @@ type ListNode struct {
 // 请你将两个数相加，并以相同形式返回一个表示和的链表。
 // 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
 
+// 解题思路
+// 先考虑两链表相加 然后考虑 进位情况
+/*func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+	// 想完成两链表相加
+	result := &ListNode{}
+	dummy := result
+	carry := 0
+	for l1 != nil || l2 != nil {
+		sum := carry
+		if l1 != nil {
+			sum += l1.Val
+			l1 = l1.Next
+		}
+		if l2 != nil {
+			sum += l2.Val
+			l2 = l2.Next
+		}
+		dummy.Next = &ListNode{Val: sum}
+		dummy = dummy.Next
+	}
+	return result.Next
+}*/
 func main() {
 	list := &ListNode{Val: 9}
 	list1 := &ListNode{Val: 9}

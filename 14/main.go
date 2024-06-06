@@ -8,6 +8,9 @@ import (
 // 如果不存在公共前缀，返回空字符串 ""。
 // 输入：strs = ["flower","flow","flight"]
 // 输出："fl"
+
+// 解题思路
+// 暴力法 每一个都进行遍历 0(n2)
 func longestCommonPrefix(strs []string) string {
 	if len(strs) == 0 {
 		return ""
